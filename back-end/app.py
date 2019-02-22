@@ -65,3 +65,6 @@ def hello_world():
 		#streamFacts = (json)
 			
 		return(jsonify(temp_dic))
+
+if __name__ == "__main__":
+	app.run(host='0.0.0.0', port=80)
