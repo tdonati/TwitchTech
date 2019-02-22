@@ -2,9 +2,11 @@ from flask import Flask, request
 import requests
 import json
 from flask import jsonify 
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/getUser')
 def hello_world():
@@ -25,6 +27,9 @@ def hello_world():
 	response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
 
 	json_data = json.loads(response.text)
+	if json_data["_total"] == 0: 
+		return("streamer doesnt exsist")
+	
 	users = (json_data['users'])
 	#print(users)
 	
