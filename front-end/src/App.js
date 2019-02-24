@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Input } from 'antd';
 import 'antd/dist/antd.css';
 import './App.css';
+import { Card } from 'antd';
+
+const { Meta } = Card;
 var request = require("request");
 
 
@@ -26,7 +29,7 @@ class App extends Component {
         if (error) throw new Error(error);
         if (body === 'streamer doesnt exsist'){
           this.setState({'content':
-                  <div>
+                  <div className= 'noStream'>
                       <p>no streamer</p>
                   </div>
           })
@@ -34,10 +37,16 @@ class App extends Component {
           let parsedBody = JSON.parse(body)
           this.setState({'content':
                   <div className='content-container'>
-                      <p>{parsedBody.display_name}</p>
-                      <img src={parsedBody.logo}/>
-                      <p>{parsedBody.name}</p>
-                      <p>Is active: {parsedBody.isLive}</p>
+                    <Card
+                      hoverable
+                      style={{ width: 240 }}
+                      cover={<img alt="example" src={parsedBody.logo} />}
+                    >
+                      <Meta
+                        title={parsedBody.display_name}
+                        description={"Is active: " + parsedBody.isLive}
+                      />
+                    </Card>
                   </div>
           })
         }
@@ -50,7 +59,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Input onChange={event => this.getStreamerAvailability(event.target.value)} />
+        <Input className="StreamerInput" onChange={event => this.getStreamerAvailability(event.target.value)} />
           {this.state.content}
       </div>
     );

@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  align-content: center !important;
+  align-items: center !important;
 }
 
 .App-logo {
@@ -24,7 +26,8 @@
 }
 
 .content-container{
-  font-size: 100px
+  font-size: 50px;
+  align-items: center !important;
 }
 
 @keyframes App-logo-spin {
@@ -34,4 +37,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.StreamerInput{
+  width: 200px;
+  height: 22px;
+  text-align: center !important;
+}
+
+.ant-card{
+  align-content: center !important;
+}
+
+.noStream{
+  display: block !important;
+  height: 100px !important;
+}
+
+.root{
+  align-content: center !important;
+  align-items: center !important;
 }
