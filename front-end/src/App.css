@@ -18,7 +18,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -43,10 +42,11 @@
   width: 200px;
   height: 22px;
   text-align: center !important;
+  background-color: #c32be5;
 }
 
 .ant-card{
-  align-content: center !important;
+  align-items: center !important;
 }
 
 .noStream{
@@ -57,4 +57,9 @@
 .root{
   align-content: center !important;
   align-items: center !important;
+}
+
+.content{
+  align-items: center !important;
+  align-content: center !important;
 }
